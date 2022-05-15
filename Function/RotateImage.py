@@ -1,6 +1,5 @@
 import cv2
 import random
-img = "img003.jpg"
 def Rotate(img):
     count = random.randint(0, 3);
     for i in range(count):
