@@ -1,7 +1,7 @@
 import cv2 as cv
 import random as rd
 def color_space_conv(image):
-    N = rd.randint(0, 4)
+    N = rd.randint(0, 5)
     if N == 0:
         gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
         cv.imshow("gray", gray)
@@ -22,3 +22,12 @@ def color_space_conv(image):
         HIS = cv.cvtColor(image, cv.COLOR_BGR2HLS)
         cv.imshow("HIS", HIS)
         return HIS
+    if N == 5:
+        b, g, r = cv.split(image)
+        channel = rd.randint(0, 2)
+        if channel == 0:
+            return b
+        if channel == 1:
+            return g
+        if channel == 2:
+            return r
