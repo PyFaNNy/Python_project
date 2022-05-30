@@ -24,14 +24,18 @@ def color_space_conv(image):
         return HIS
     if N == 5:
         b, g, r = cv.split(image)
+        B = float(b)
+        G = float(g)
+        R = float(r)
         channel = rd.randint(0, 2)
+        rand = rd.randint(1, 9)
         if channel == 0:
-            b = b/3
-            return cv.merge('RGB', (r, g, b))
+            B = B / rand
+            return cv.merge('RGB', (R, G, B))
         if channel == 1:
-            g = g/3
-            return cv.merge('RGB', (r, g, b))
+            G = G / rand
+            return cv.merge('RGB', (R, G, B))
         if channel == 2:
-            r = r / 3
-            return cv.merge('RGB', (r, g, b))
+            R = R / rand
+            return cv.merge('RGB', (R, G, B))
 
