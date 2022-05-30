@@ -26,8 +26,12 @@ def color_space_conv(image):
         b, g, r = cv.split(image)
         channel = rd.randint(0, 2)
         if channel == 0:
-            return b
+            b = b/3
+            return cv.merge('RGB', (r, g, b))
         if channel == 1:
-            return g
+            g = g/3
+            return cv.merge('RGB', (r, g, b))
         if channel == 2:
-            return r
+            r = r / 3
+            return cv.merge('RGB', (r, g, b))
+
