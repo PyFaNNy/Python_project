@@ -17,6 +17,7 @@ def Placement(N, Counter):
             im = Image.open(f'{i}.jpg')
             im.thumbnail(size)
             ims.append(im)
+            i+=1
         i = 0
         x = 0
         y = 0
