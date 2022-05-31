@@ -2,7 +2,7 @@ import  numpy as np
 from PIL import Image
 
 
-def Placement(listOfImages, N):
+def Placement(N, Counter):
         cols = int(N/2)
         rows = 2
         width = 1200
@@ -12,8 +12,9 @@ def Placement(listOfImages, N):
         size = thumbnail_width, thumbnail_height
         new_im = Image.new('RGB', (width, height))
         ims = []
-        for p in listOfImages:
-            im = Image.open(p)
+        i=1
+        while i <=Counter:
+            im = Image.open(f'{i}.jpg')
             im.thumbnail(size)
             ims.append(im)
         i = 0

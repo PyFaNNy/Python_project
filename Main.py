@@ -10,7 +10,7 @@ from Function.ScaleImage import scale
 path = input("Enter path to image:").split(" ")
 savePath = input("Enter path to save:")
 number = int(input("Enter number of copy:"))
-
+zone = int(input("Enter number of zone:"))
 
 i=0
 resultImg = []
@@ -24,5 +24,4 @@ for p in path:
         i+=1
     i=0
 SaveImage(resultImg, savePath)
-listOfImages=['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg']
-Placement(listOfImages[:len(path)*number],len(path)*number)
+Placement(zone,len(path)*number)
