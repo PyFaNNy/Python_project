@@ -12,16 +12,18 @@ savePath = input("Enter path to save:")
 number = int(input("Enter number of copy:"))
 zone = int(input("Enter number of zone:"))
 
-i=0
+i = 0
 resultImg = []
 for p in path:
     img = cv2.imread(p)
+    img2 = img
     while i < number:
         img = Rotate(img)
         img = color_space_conv(img)
         img = scale(img)
         resultImg.append(img)
-        i+=1
-    i=0
+        img = img2
+        i += 1
+    i = 0
 SaveImage(resultImg, savePath)
-Placement(zone,len(path)*number)
+Placement(zone, len(path)*number)
