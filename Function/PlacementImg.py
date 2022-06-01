@@ -17,7 +17,7 @@ def Placement(N , Counter):
             ims.append(new_im1)
             i += 1
 
-        new_im = Image.new('RGB', (100 * Counter, 200), (255, 255, 255))
+        new_im = Image.new('RGB', (int(100 * Counter), 300), (255, 255, 255))
         i = 0
         x = 0
         y = 0
@@ -31,7 +31,7 @@ def Placement(N , Counter):
                         print(i, x, y)
                         new_im.paste(ims[i], (x, y))
                         i += 1
-                        y = 100
+                        y = 200
                 x += int((100 * Counter)/cols)
                 y = 0
             dx += 100
