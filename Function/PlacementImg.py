@@ -1,33 +1,46 @@
-import  numpy as np
+import numpy as np
 from PIL import Image
 
 
-def Placement(N, Counter):
+def Placement(N , Counter):
         cols = int(N/2)
         rows = 2
-        width = 1200
-        height = 800
-        thumbnail_width = width // cols
-        thumbnail_height = height // rows
-        size = thumbnail_width, thumbnail_height
-        new_im = Image.new('RGB', (width, height))
+        size = 100, 100
         ims = []
-        i=1
-        while i <=Counter:
+        i = 1
+        while i <= Counter:
             im = Image.open(f'{i}.jpg')
             im.thumbnail(size)
-            ims.append(im)
-            i+=1
+            new_im1 = Image.new('RGB', size, (255, 255, 255))
+            new_im1.paste(im, (0, 0))
+
+            ims.append(new_im1)
+            i += 1
+
+        new_im = Image.new('RGB', (int(100 * Counter), 300), (255, 255, 255))
         i = 0
         x = 0
         y = 0
-        for col in range(cols):
-            for row in range(rows):
-                print(i, x, y)
-                new_im.paste(ims[i], (x, y))
-                i += 1
-                y += thumbnail_height
-            x += thumbnail_width
+        dx = 0
+        k = 0
+
+        while k < Counter // N + 1:
+            for col in range(cols):
+                for row in range(rows):
+                    if i < Counter:
+                        print(i, x, y)
+                        new_im.paste(ims[i], (x, y))
+                        i += 1
+                        y = 200
+                x += int((100 * Counter)/cols)
+                y = 0
+            dx += 100
+            x = dx
             y = 0
+            k += 1
+
+
+
 
         new_im.save("Collage.jpg")
+
